@@ -101,6 +101,7 @@ function M.with_config(config)
         lsp_semantic = true,
         mini_completion = true,
         dapui = true,
+        neogit = true,
     }, config or M.config or {})
 end
 
@@ -657,6 +658,40 @@ function M.setup(colors, config)
         hi.DapUIStepIntoNC = { guifg = M.colors.base0D, ctermfg = M.colors.cterm0D }
         hi.DapUIStepBackNC = { guifg = M.colors.base0D, ctermfg = M.colors.cterm0D }
         hi.DapUIStepOutNC = { guifg = M.colors.base0D, ctermfg = M.colors.cterm0D }
+    end
+
+    if M.config.neogit then
+        -- File statuses:
+        hi.NeogitChangeAdded = { guifg = M.colors.base0B, ctermfg = M.colors.cterm0B }
+        hi.NeogitChangeNewFile = { guifg = M.colors.base0B, ctermfg = M.colors.cterm0B }
+        hi.NeogitChangeRenamed = { guifg = M.colors.base0B, ctermfg = M.colors.cterm0B, gui = "italic" }
+        hi.NeogitChangeCopied = { guifg = M.colors.base0B, ctermfg = M.colors.cterm0B, gui = "italic" }
+        hi.NeogitChangeModified = { guifg = M.colors.base0A, ctermfg = M.colors.cterm0A }
+        hi.NeogitChangeUpdated = { guifg = M.colors.base0E, ctermfg = M.colors.cterm0E }
+        hi.NeogitChangeDeleted = { guifg = M.colors.base08, ctermfg = M.colors.cterm08 }
+        hi.NeogitChangeUnmerged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic" }
+
+        -- File statuses in staged section are bolded
+        hi.NeogitChangeAstaged = { guifg = M.colors.base0B, ctermfg = M.colors.cterm0B, gui = "bold" }
+        hi.NeogitChangeNstaged = { guifg = M.colors.base0B, ctermfg = M.colors.cterm0B, gui = "bold" }
+        hi.NeogitChangeRstaged = { guifg = M.colors.base0B, ctermfg = M.colors.cterm0B, gui = "italic,bold" }
+        hi.NeogitChangeCstaged = { guifg = M.colors.base0B, ctermfg = M.colors.cterm0B, gui = "italic,bold" }
+        hi.NeogitChangeMstaged = { guifg = M.colors.base0A, ctermfg = M.colors.cterm0A, gui = "bold" }
+        hi.NeogitChangeUstaged = { guifg = M.colors.base0E, ctermfg = M.colors.cterm0E, gui = "bold" }
+        hi.NeogitChangeDstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "bold" }
+        hi.NeogitChangeUstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic,bold" }
+        hi.NeogitChangeDDstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic,bold" }
+        hi.NeogitChangeUUstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic,bold" }
+        hi.NeogitChangeAAstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic,bold" }
+        hi.NeogitChangeDUstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic,bold" }
+        hi.NeogitChangeUDstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic,bold" }
+        hi.NeogitChangeAUstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic,bold" }
+        hi.NeogitChangeUAstaged = { guifg = M.colors.base08, ctermfg = M.colors.cterm08, gui = "italic,bold" }
+
+        -- Headings:
+        hi.NeogitSectionHeader = { guifg = M.colors.base0D, ctermfg = M.colors.cterm0D, gui = "bold" }
+
+
     end
 
 
