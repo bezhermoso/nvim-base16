@@ -23,6 +23,16 @@ function ensure_tools() {
     2>&1 printf "tinted-builder-rust must be installed. See https://github.com/tinted-theming/tinted-builder-rust?tab=readme-ov-file#cli\n\n"
     exit 1
   fi
+
+  if [[ ! "$SED_COMMAND" =~ (sed|gsed) ]]; then
+    2>&1 printf "Invalid SED_COMMAND value: Only sed, gsed allowed.\n\n"
+    exit 1
+  fi
+
+  if (( ! $+commands[$SED_COMMAND] )); then
+    2>&1 printf "${SED_COMMAND}: command not found.\n\n"
+    exit 1
+  fi
 }
 
 function sorted_vim_colors() {
